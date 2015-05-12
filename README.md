@@ -1,39 +1,59 @@
-# Strepi
+= Strepi
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/strepi`. To experiment with that code, run `bin/console` for an interactive prompt.
+An updated gem based on Mwhich
 
-TODO: Delete this and the text above, and describe your gem
+== INSTALLING STREPI
 
-## Installation
+Strepi can be downloaded with 
 
-Add this line to your application's Gemfile:
+	gem install 'strepi'
 
-```ruby
-gem 'strepi'
-```
+== DESCRIPTION
 
-And then execute:
+Strepi was made as an update to the now defunct MWhich[https://github.com/dacort/mwhich], which was no longer maintained because of the lack of a Netflix API. I was able to restore Netflix functionality to Strepi and add Crunchyroll[crunchyroll.com](Anime streaming website) service. Strepi checks to see if a movie/TV show is available on ITunes, Amazon, Crunchyroll, Netflix, or Amazon.
 
-    $ bundle
+== HOW IT WAS DONE
 
-Or install it yourself as:
+This is how the data for each service was acessed
 
-    $ gem install strepi
+* Netflix: The Netflix Roulette gem and api. (http://netflixroulette.net/api/)
+* Amazon: Official Amazon ECS (Required credentials)
+* Hulu: Hacks publisher tool endpoint
+* iTunes: Their Store Web Service Search API via AffiliatesSearch2.1.pdf[http://www.apple.com/itunesaffiliates/API/AffiliatesSearch2.1.pdf]
+* Crunchyroll: Scrapes Crunchyroll pages
 
-## Usage
+== REQUIREMENTS 
 
-TODO: Write usage instructions here
+Similar to MWhich, these gems are needed:
 
-## Development
+* yajl-ruby
+* nokogiri
+* ruby-hmac
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
+== USING STREPI
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+While 
 
-## Contributing
+To create a basic MWhich instance:
 
-1. Fork it ( https://github.com/[my-github-username]/strepi/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+    m = Strepi::Client.new
+
+You can search for a movie like this:
+
+    w.search("The Prestige")
+    # => {:amazon=>[], :hulu=>[], :itunes=>["feature-movie: The Prestige ($9.99)"], :netflix=>[The Prestige is available!, :crunchyroll=>[]}
+
+At this time, this merely returns a hash of key/value pairs indicating which
+services the movie or TV show was found on. The value is a simple string with
+the type of media found and the title. Comments specific to each service
+may also appear. For example:
+
+* Hulu sometimes links to external content, "Not on hulu!" will identify this.
+* iTunes will display prices of product
+
+Limit your searches by service	
+
+    w = Strepi::Client.new(:services => [:netflix, :hulu])
+    m.search("Knight Rider")
+    # => {:hulu=>["episode: I Love the Knight Life", "episode: Knight and the City", "episode: Fly By Knight", "episode: Fight Knight", "episode: Exit Light, Enter Knight", "episode: Knight to King's Pawn", "episode: Day Turns Into Knight", "episode: Don't Stop the Knight", "episode: Knight Fever", "episode: Knight of the Zodiac"], :netflix=>["Series: Knight Rider", "Series: Knight Rider"]}
+

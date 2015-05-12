@@ -1,5 +1,19 @@
-require "strepi/version"
+require 'rubygems'
 
-module Strepi
-  # Your code goes here...
-end
+require 'net/http'
+require 'uri'
+require 'cgi'
+require 'yajl'
+require 'nokogiri'
+require 'time'
+require 'hmac-sha2'
+require 'base64'
+require 'amazon/ecs'
+require 'netflix_roulette'
+
+require 'strepi/amazon_ecs'
+require 'strepi/hulu'
+require 'strepi/itunes'
+require 'strepi/netflix'
+require 'strepi/crunchyroll'
+require 'strepi/client'
