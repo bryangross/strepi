@@ -32,11 +32,11 @@ Similar to MWhich, these gems are needed:
 
 == USING STREPI
 
-While 
 
-To create a basic MWhich instance:
 
-    m = Strepi::Client.new
+To create a basic Strepi instance:
+
+    w = Strepi::Client.new
 
 You can search for a movie like this:
 
@@ -51,9 +51,9 @@ may also appear. For example:
 * Hulu sometimes links to external content, "Not on hulu!" will identify this.
 * iTunes will display prices of product
 
-Limit your searches by service	
+Limit your searches by service:
 
     w = Strepi::Client.new(:services => [:netflix, :hulu])
-    m.search("Knight Rider")
+    w.search("Knight Rider")
     # => {:hulu=>["episode: I Love the Knight Life", "episode: Knight and the City", "episode: Fly By Knight", "episode: Fight Knight", "episode: Exit Light, Enter Knight", "episode: Knight to King's Pawn", "episode: Day Turns Into Knight", "episode: Don't Stop the Knight", "episode: Knight Fever", "episode: Knight of the Zodiac"], :netflix=>["Series: Knight Rider", "Series: Knight Rider"]}
 
