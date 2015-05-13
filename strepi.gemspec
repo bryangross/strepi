@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.description = "Strepi was made as an update to the now defunct MWhich[https://github.com/dacort/mwhich] created by dacort[https://github.com/dacort], which was no longer maintained because of the lack of a Netflix API. I was able to restore Netflix functionality to Strepi and add Crunchyroll[crunchyroll.com](Anime streaming website) service. Strepi checks to see if a movie/TV show is available on ITunes, Amazon, Crunchyroll, Netflix, or Amazon."
   s.license     = 'MIT-LICENSE'
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
   s.require_paths = ["lib"]
 

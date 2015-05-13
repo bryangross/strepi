@@ -2,7 +2,7 @@ module Strepi
   module Services
     class Crunchyroll               #very similar to hulu probably, should finish this
       def initialize(options={})
-        @endpoint_url = "http://crunchyroll.com"
+        @endpoint_url = "http://www.crunchyroll.com"
         @ignore_media = []
         
       end
