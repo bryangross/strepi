@@ -61,22 +61,14 @@ Limit your searches by service:
 Enter Amazon credentials:
 
 
-    w = Strepi::Client.new(:services => [:amazon], :ecs_credentials => {
-	:associate_tag => 'Your associate tag',
-	:AWS_access_key_id => 'Your access key ID',       
-	:AWS_secret_key => 'Your secret key'
-	})
+    w = Strepi::Client.new(:services => [:amazon], :ecs_credentials => {:associate_tag => 'Your associate tag', :AWS_access_key_id => 'Your access key ID', :AWS_secret_key => 'Your secret key'})
 
 Amazon credentials can also be stored in initializer and be called as ECS_CREDENTIALS when creating Strepi instance.
 
 Initializer file:
 
 
-    ECS_CREDENTIALS =	{
-	:associate_tag => 'Your associate tag',
-	:AWS_access_key_id => 'Your access key ID',       
-	:AWS_secret_key => 'Your secret key'
-	}	
+    ECS_CREDENTIALS = {:associate_tag => 'Your associate tag', :AWS_access_key_id => 'Your access key ID', :AWS_secret_key => 'Your secret key'}	
 
 
 
