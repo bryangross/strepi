@@ -53,27 +53,30 @@ may also appear. For example:
 
 Limit your searches by service:
 
+
     w = Strepi::Client.new(:services => [:netflix, :hulu])
     w.search("Knight Rider")
     # => {:hulu=>["episode: I Love the Knight Life", "episode: Knight and the City", "episode: Fly By Knight", "episode: Fight Knight", "episode: Exit Light, Enter Knight", "episode: Knight to King's Pawn", "episode: Day Turns Into Knight", "episode: Don't Stop the Knight", "episode: Knight Fever", "episode: Knight of the Zodiac"], :netflix=>["Series: Knight Rider", "Series: Knight Rider"]}
 
 
 Enter Amazon credentials:
+	```
 	
-	w = Strepi::Client.new(:services => [:amazon], :ecs_credentials => {
+    w = Strepi::Client.new(:services => [:amazon], :ecs_credentials => {
 	:associate_tag => 'Your associate tag',
 	:AWS_access_key_id => 'Your access key ID',       
 	:AWS_secret_key => 'Your secret key'
 	})
-
+	```
 
 Amazon credentials can also be stored in initializer and be called as ECS_CREDENTIALS when creating Strepi instance.
 
 Initializer file:
-
+	```
 	ECS_CREDENTIALS =	{
 	:associate_tag => 'Your associate tag',
-	AWS_access_key_id => 'Your access key ID',       
+	:AWS_access_key_id => 'Your access key ID',       
 	:AWS_secret_key => 'Your secret key'
 	}	
+	```
 
