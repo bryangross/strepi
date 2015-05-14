@@ -12,7 +12,7 @@ module Strepi
         new_title = title.gsub(/[^a-z0-9\s]/i, '').gsub(' ', '-') #new title foormat to be inserted into URL for crunchyroll, takes away all non-alphanumeric character and then replaces spaces with dashes
 
         titles = []
-        page_request = Net::HTTP.get_response(URI.parse("#{@endpoint_url}/#{new_title}"))
+        page_request = Net::HTTP.get_response(URI.parse("#{@endpoint_url}/#{new_title}")) #Anime series not on crunchyroll will not follow this format
         if page_request.code != "200"
           nil
         else

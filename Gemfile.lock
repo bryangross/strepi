@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    strepi (0.0.2)
+    strepi (0.0.3)
       amazon-ecs
       netflix_roulette
       nokogiri
