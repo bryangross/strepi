@@ -54,9 +54,9 @@ may also appear. For example:
 Limit your searches by service:
 
 
-    w = Strepi::Client.new(:services => [:netflix, :hulu])
-    w.search("Knight Rider")
-    # => {:hulu=>["episode: I Love the Knight Life", "episode: Knight and the City", "episode: Fly By Knight", "episode: Fight Knight", "episode: Exit Light, Enter Knight", "episode: Knight to King's Pawn", "episode: Day Turns Into Knight", "episode: Don't Stop the Knight", "episode: Knight Fever", "episode: Knight of the Zodiac"], :netflix=>["Series: Knight Rider", "Series: Knight Rider"]}
+    w = Strepi::Client.new(:services => [:netflix, :crunchyroll, :hulu])
+    w.search("Naruto")
+    # => {:netflix=>[], :crunchyroll=>["Naruto is on Crunchyroll!"], :hulu=>[": Naruto", ": (Sub) Departure", ": (Sub) The Ultimate Weapon Reborn", ": (Sub) The Counterattack!", ": (Sub) Sand Alliance with the Leaf Shinobi", ": (Sub) The Targeted Shukaku", ": (Sub) A Past to Be Erased", ": (Sub) Bringing Back Reality", ": (Sub) Vanished Memories", ": (Sub) To Each His Own Path"]}
 
 Enter Amazon credentials:
 
